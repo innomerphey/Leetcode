@@ -10,32 +10,30 @@
  * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function(head, n) {
+var removeNthFromEnd = function (head, n) {
 
-    if(!head.next) {
+    if (!head.next) {
         return null
     }
 
     let firstPointer = head
     let secondPointer = head
 
-    for(let i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) {
         secondPointer = secondPointer.next
     }
 
-    if(!secondPointer) {
+    if (!secondPointer) {
         head = head.next
 
         return head
     }
 
 
-    while(secondPointer.next) {
+    while (secondPointer.next) {
         secondPointer = secondPointer.next
         firstPointer = firstPointer.next
     }
-
-    console.log(firstPointer, secondPointer)
 
     firstPointer.next = firstPointer.next.next
 
